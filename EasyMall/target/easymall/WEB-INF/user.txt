@@ -1,0 +1,9 @@
+/order_list.jsp
+/order_add.jsp
+/pay.jsp
+/confirm.jsp
+/servlet/OrderAddServlet
+/servlet/OrderListServlet
+/servlet/OrderDeleteServlet
+/servlet/PayServlet
+/servlet/CallBackServlet

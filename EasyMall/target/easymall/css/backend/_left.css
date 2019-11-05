@@ -1,0 +1,37 @@
+@charset "UTF-8";
+body {
+    background-color: #32323A;
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+
+body, div {
+    margin: 0px;
+    padding: 0px;
+}
+
+div#menu_bar {
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+div#menu_bar div {
+    border-top: 1px solid #cccccc;
+    padding: 5px 0;
+    text-indent: 15px;
+    letter-spacing: 3px;
+}
+
+div#menu_bar div:last-child {
+    border-bottom: 1px solid #cccccc;
+}
+
+div#menu_bar div:hover {
+    background-color: #797981;
+}
+
+div#menu_bar div a {
+    font-size: 20px;
+    color: #FFFFFF;
+    text-decoration: none;
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="com.easymall.pojo.User" alias="User"/>
+        <typeAlias type="com.easymall.pojo.Product" alias="Product"/>
+        <typeAlias type="com.easymall.pojo.Order" alias="Order"/>
+        <typeAlias type="com.easymall.pojo.OrderItem" alias="OrderItem"/>
+        <typeAlias type="com.easymall.pojo.SaleInfo" alias="SaleInfo"/>
+    </typeAliases>
+    <environments default="dev">
+        <environment id="dev">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="pooled">
+                <property name="driver"
+                          value="com.mysql.jdbc.Driver"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/easymall?characterEncoding=utf-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="UserMapper.xml"/>
+        <mapper resource="ProductMapper.xml"/>
+        <mapper resource="OrderMapper.xml"/>
+    </mappers>
+</configuration>

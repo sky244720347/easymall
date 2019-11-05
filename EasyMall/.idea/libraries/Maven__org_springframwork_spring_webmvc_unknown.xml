@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframwork:spring-webmvc:unknown">
+    <CLASSES>
+      <root url="jar://D:/MavenRepository/org/springframwork/spring-webmvc/unknown/spring-webmvc-unknown.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://D:/MavenRepository/org/springframwork/spring-webmvc/unknown/spring-webmvc-unknown-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://D:/MavenRepository/org/springframwork/spring-webmvc/unknown/spring-webmvc-unknown-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

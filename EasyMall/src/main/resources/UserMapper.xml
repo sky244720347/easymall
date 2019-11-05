@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easymall.dao.UserMapper">
+    <sql id="userColumnsExceptId">
+        username, password, nickname, email, role
+    </sql>
+    <sql id="userAllColumns">
+        id,
+        <include refid="userColumnsExceptId"/>
+    </sql>
+
+    <insert id="addUser">
+        insert into user values
+        (null,#{username},#{password},#{nickname},#{email},'user')
+    </insert>
+
+    <select id="findUserByUsername" resultType="User">
+        select
+        <include refid="userAllColumns"/>
+        from user
+        where username=#{username}
+    </select>
+
+    <select id="findUserByNameAndPwd" resultType="User">
+        select
+        <include refid="userAllColumns"/>
+        from user
+        where username=#{username} and password=#{password}
+    </select>
+
+    <select id="findUserById" resultType="User">
+        select
+        <include refid="userAllColumns"/>
+        from user
+        where id=#{id}
+    </select>
+
+    <select id="findAll" resultType="User">
+        select
+        <include refid="userAllColumns"/>
+        from user
+    </select>
+
+    <delete id="delUser">
+        delete
+        from user
+        where id=#{id}
+    </delete>
+
+    <update id="updatePwd">
+        update user
+        set password=#{password}
+        where id=#{id}
+    </update>
+</mapper>

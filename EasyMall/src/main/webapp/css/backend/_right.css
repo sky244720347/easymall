@@ -1,0 +1,14 @@
+@charset "UTF-8";
+body {
+    background-color: #EDEDED;
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+
+#wel {
+    text-align: center;
+    padding: 180px 0px;
+    font-size: 36px;
+    color: #686868;
+    text-shadow: 5px 5px 5px #444444;
+}

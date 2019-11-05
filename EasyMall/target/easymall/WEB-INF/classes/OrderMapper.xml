@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.easymall.dao.OrderMapper">
+    <sql id="orderAllColumns">
+        id,money,receiverinfo,paystate,ordertime,user_id
+    </sql>
+
+    <sql id="orderItemAllColumns">
+        order_id,product_id,buynum
+    </sql>
+
+    <insert id="addOrder">
+        insert into orders values
+        (#{id},#{money},#{receiverinfo},#{paystate},#{ordertime},#{user_id})
+    </insert>
+
+    <insert id="addOrderItem">
+        insert into orderitem values
+        (#{order_id},#{product_id},#{buynum})
+    </insert>
+
+    <select id="findOrderByUserId" resultType="Order">
+        select
+        <include refid="orderAllColumns"></include>
+        from orders
+        where user_id=#{user_id}
+    </select>
+
+    <select id="findOrderItemByOrderId" resultType="OrderItem">
+        select
+        <include refid="orderItemAllColumns"></include>
+        from orderitem
+        where order_id=#{order_id}
+    </select>
+
+    <select id="findOrderByOid" resultType="Order">
+        select
+        <include refid="orderAllColumns"></include>
+        from orders
+        where id=#{id}
+    </select>
+
+    <delete id="deleteOrderItemsByOid">
+        delete from orderitem where order_id=#{order_id}
+    </delete>
+
+    <delete id="deleteOrderByOid">
+        delete from orders where id=#{id}
+    </delete>
+
+    <update id="updatePaystateByOid">
+        update orders set paystate=#{paystate}
+        where id=#{id}
+    </update>
+
+    <select id="findSaleInfos" resultType="SaleInfo">
+        select pd.id prod_id,pd.name prod_name,sum(oi.buynum) sale_num
+        from products pd,orderitem oi,orders od
+        where pd.id = oi.product_id
+        and oi.order_id = od.id
+        and od.paystate = 1
+        group by prod_id order by sale_num DESC
+    </select>
+
+</mapper>
